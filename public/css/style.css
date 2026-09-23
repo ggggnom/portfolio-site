@@ -377,7 +377,7 @@ p {
    ========================================================= */
 .hero {
   position: relative;
-  padding: 24px 0 150px;
+  padding: 24px 0 112px;
   overflow: visible;
 }
 
@@ -547,7 +547,12 @@ p {
 }
 
 .hero__tags-flat .tag-row {
-  gap: 11.003px 0;
+  gap: 0;
+  padding-top: 1px;
+}
+
+.hero__tags-flat .tag {
+  margin-top: -1px;
 }
 
 .hero__tags-flat .tag:not(:last-child) {
@@ -612,6 +617,10 @@ p {
   color: var(--text-secondary);
 }
 
+.section-label--contacts {
+  margin-bottom: 24px;
+}
+
 .cases {
   display: flex;
   flex-direction: column;
@@ -622,6 +631,10 @@ p {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.case:first-of-type {
+  margin-top: -16px;
 }
 
 .case__head {
@@ -951,7 +964,7 @@ a.case__media--full:hover img {
 .experience {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 48px;
   padding-bottom: 150px;
 }
 
@@ -1021,7 +1034,9 @@ a.case__media--full:hover img {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 24px;
-  width: 100%;
+  width: calc(100% + var(--gutter-mobile) * 2);
+  margin-left: calc(-1 * var(--gutter-mobile));
+  margin-right: calc(-1 * var(--gutter-mobile));
 }
 
 .exp-card__head {
@@ -1042,7 +1057,8 @@ a.case__media--full:hover img {
 .exp-card__period {
   font-size: 13px;
   color: var(--text-secondary);
-  white-space: nowrap;
+  width: 125px;
+  flex-shrink: 0;
 }
 
 .exp-card__tags {
@@ -1164,7 +1180,7 @@ a.case__media--full:hover img {
 .education {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 48px;
   padding-bottom: 150px;
 }
 
@@ -1306,6 +1322,7 @@ a.case__media--full:hover img {
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  margin-bottom: 24px;
 }
 
 .vibe__title {
@@ -1534,6 +1551,7 @@ a.case__media--full:hover img {
   align-items: center;
   gap: 16px;
   width: 100%;
+  padding-left: 24px;
   text-decoration: none;
 }
 
@@ -1670,6 +1688,10 @@ a.case__media--full:hover img {
     gap: 48px;
   }
 
+  .case:first-of-type {
+    margin-top: 0;
+  }
+
   .case {
     gap: 23px;
   }
@@ -1766,6 +1788,9 @@ a.case__media--full:hover img {
     padding: 24px;
     border-radius: 32px;
     gap: 40px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .exp-card__head {
@@ -1774,6 +1799,8 @@ a.case__media--full:hover img {
 
   .exp-card__period {
     font-size: 14px;
+    width: auto;
+    white-space: nowrap;
   }
 
   .exp-card__title {
@@ -1844,6 +1871,10 @@ a.case__media--full:hover img {
      ======================================================= */
   .vibe {
     gap: 28px;
+  }
+
+  .vibe__header {
+    margin-bottom: 0;
   }
 
   .vibe__title {
