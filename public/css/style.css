@@ -1622,8 +1622,16 @@ a.case__media--full:hover img {
     left: var(--gutter-tablet);
   }
 
+  .page-bg {
+    display: block;
+  }
+
   .hero {
     padding: 32px 0 150px;
+  }
+
+  .hero__stats {
+    max-width: 600px;
   }
 
   .hero-dots--mobile {
@@ -2011,6 +2019,7 @@ a.case__media--full:hover img {
   }
 
   .hero__stats {
+    max-width: none;
     flex-wrap: nowrap;
     gap: 36px;
   }
