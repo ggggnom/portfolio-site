@@ -81,4 +81,31 @@
       dotGroups.forEach((group) => observer.observe(group));
     }
   }
+
+  /* ---------------------------------------------------------
+     Video section: lazy-load, autoplay muted/looped on scroll
+     into view, no manual controls. Skipped under reduced motion.
+     --------------------------------------------------------- */
+  const lazyVideos = document.querySelectorAll("[data-lazy-video]");
+
+  if (lazyVideos.length && !prefersReducedMotion && "IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            if (!video.src && video.dataset.src) {
+              video.src = video.dataset.src;
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    lazyVideos.forEach((video) => videoObserver.observe(video));
+  }
 })();
