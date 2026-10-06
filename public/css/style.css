@@ -690,7 +690,9 @@ a.case__desc:hover {
 .case__year {
   font-size: 14px;
   color: var(--text-muted);
-  width: 55px;
+  min-width: 55px;
+  white-space: nowrap;
+  margin-right: 24px;
 }
 
 .case-tag {
