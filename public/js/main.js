@@ -94,10 +94,19 @@
         entries.forEach((entry) => {
           const video = entry.target;
           if (entry.isIntersecting) {
+            // Some mobile browsers only honor these when set via JS,
+            // not just as HTML attributes, once src changes dynamically.
+            video.muted = true;
+            video.playsInline = true;
             if (!video.src && video.dataset.src) {
               video.src = video.dataset.src;
             }
-            video.play().catch(() => {});
+            const tryPlay = () => video.play().catch(() => {});
+            if (video.readyState >= 2) {
+              tryPlay();
+            } else {
+              video.addEventListener("loadeddata", tryPlay, { once: true });
+            }
           } else {
             video.pause();
           }
